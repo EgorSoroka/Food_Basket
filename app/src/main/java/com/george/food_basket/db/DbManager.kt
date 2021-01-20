@@ -1,11 +1,11 @@
-package com.george.fridge.db
+package com.george.food_basket.db
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 
 class DbManager(context : Context) {
-    val ProductsDBHelper = ProductsDBHelper(context)
+    private val ProductsDBHelper = ProductsDBHelper(context)
 
     var db: SQLiteDatabase? = null
 
@@ -23,7 +23,7 @@ class DbManager(context : Context) {
     fun readDbData(): ArrayList<String>{
         val dataList = ArrayList<String>()
 
-        val cursor = db?.query(ProductsContract.TABLE_NAME,  null, null, null, null, null, null,)
+        val cursor = db?.query(ProductsContract.TABLE_NAME,  null, null, null, null, null, null)
 
         with(cursor){
             while (this?.moveToNext()!!){
