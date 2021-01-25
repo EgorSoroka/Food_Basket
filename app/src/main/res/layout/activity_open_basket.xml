@@ -8,11 +8,11 @@
     tools:context=".OpenBasket">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerProd"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,8 +27,8 @@
         android:gravity="center"
         android:text="@string/no_products"
         android:textColor="@color/greyText"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView" />
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerProd"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerProd"
+        app:layout_constraintStart_toStartOf="@+id/recyclerProd"
+        app:layout_constraintTop_toTopOf="@+id/recyclerProd" />
 </androidx.constraintlayout.widget.ConstraintLayout>

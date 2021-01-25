@@ -3,7 +3,6 @@ package com.george.food_basket.db
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.george.food_basket.db.ProductsContract
 
 class ProductsDBHelper(context : Context) : SQLiteOpenHelper(context, ProductsContract.DATABASE_NAME, null, ProductsContract.DATABASE_VERSION ) {
     override fun onCreate(db: SQLiteDatabase?) {

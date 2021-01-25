@@ -11,14 +11,20 @@ class MainActivity : AppCompatActivity() {
 
     val dbManager = DbManager(this)
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        dbManager.openDB()
+
+
     }
 
     fun onClickAdd(view: View) {
-        dbManager.insertToDB(nameProd.text.toString())
+
+        if (nameProd.text.toString() != ""){
+            dbManager.insertToDB(nameProd.text.toString())
+        }
+
     }
 
     fun openBasket(view: View) {
@@ -29,6 +35,12 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         dbManager.closeDb()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        dbManager.openDB()
     }
 
 }

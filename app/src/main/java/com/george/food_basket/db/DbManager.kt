@@ -20,15 +20,17 @@ class DbManager(context : Context) {
         db?.insert(ProductsContract.TABLE_NAME, null, values)
     }
 
-    fun readDbData(): ArrayList<String>{
-        val dataList = ArrayList<String>()
+    fun readDbData(): ArrayList<ListItem>{
+        val dataList = ArrayList<ListItem>()
 
         val cursor = db?.query(ProductsContract.TABLE_NAME,  null, null, null, null, null, null)
 
         with(cursor){
             while (this?.moveToNext()!!){
                 val dataText = cursor?.getString(cursor.getColumnIndex(ProductsContract.COLUMN_NAME_TITLE))
-                dataList.add(dataText.toString())
+                val item = ListItem()
+                item.product = dataText.toString()
+                dataList.add(item)
             }
         }
         cursor?.close()
