@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.george.food_basket.db.DbManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,6 +24,10 @@ class MainActivity : AppCompatActivity() {
 
         if (nameProd.text.toString() != ""){
             dbManager.insertToDB(nameProd.text.toString())
+            val text = nameProd.text.toString() + " added!!"
+            val duration = Toast.LENGTH_SHORT
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
         }
 
     }
