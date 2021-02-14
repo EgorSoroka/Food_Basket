@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_open_basket.*
 class OpenBasket : AppCompatActivity() {
 
     val dbManager = DbManager(this)
-    val adapterBasket = BasketAdapter(ArrayList())
+    val adapterBasket = BasketAdapter(ArrayList(), this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

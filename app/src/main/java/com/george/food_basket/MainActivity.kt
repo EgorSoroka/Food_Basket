@@ -22,10 +22,10 @@ class MainActivity : AppCompatActivity() {
 
     fun onClickAdd(view: View) {
 
-        if (nameProd.text.toString() != ""){
-            dbManager.insertToDB(nameProd.text.toString())
+        if (nameProd.text.toString() != "" ){
+            dbManager.insertToDB(nameProd.text.toString(), quantity_add.text.toString() )
             val text = nameProd.text.toString() + " added!!"
-            val duration = Toast.LENGTH_SHORT
+            val duration = Toast.LENGTH_LONG
             val toast = Toast.makeText(applicationContext, text, duration)
             toast.show()
         }

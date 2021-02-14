@@ -1,30 +1,39 @@
 package com.george.food_basket
 
-import android.icu.text.LocaleDisplayNames
+import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.george.food_basket.db.ListItem
 
-class BasketAdapter(productList:ArrayList<ListItem>) : RecyclerView.Adapter<BasketAdapter.Holder>() {
+class BasketAdapter(productList:ArrayList<ListItem>, contextB: Context) : RecyclerView.Adapter<BasketAdapter.Holder>() {
 
     var listProd = productList
+    private var contextB = contextB
 
-    class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class Holder(itemView: View, contextV:Context) : RecyclerView.ViewHolder(itemView) {
         val titleDate:TextView = itemView.findViewById(R.id.textAdapter)
+        val titleQuantity:TextView = itemView.findViewById(R.id.textQuantity)
+        val context = contextV
 
-        fun  setData(title:String){
-
-            titleDate.text = title
+        fun  setData(title:ListItem){
+            titleDate.text = title.product
+            titleQuantity.text = title.quantity
         }
+
+
+
+
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
        val inflater = LayoutInflater.from(parent.context)
-        return Holder(inflater.inflate(R.layout.basket_text_adapter, parent, false))
+        return Holder(inflater.inflate(R.layout.basket_text_adapter, parent, false), contextB)
     }
 
     override fun getItemCount(): Int {
@@ -32,7 +41,7 @@ class BasketAdapter(productList:ArrayList<ListItem>) : RecyclerView.Adapter<Bask
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.setData(listProd.get(position).product)
+        holder.setData(listProd.get(position))
     }
 
     fun updateAdapter(listItem:List<ListItem>){

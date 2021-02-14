@@ -11,12 +11,57 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_marginStart="16dp"
+        android:gravity="center"
+        android:padding="8dp"
         android:textColor="@color/whiteText"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.008"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="TextView" />
+
+    <TextView
+        android:id="@+id/textQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@color/whiteText"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toEndOf="@+id/textAdapter"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:contentDescription="Delete"
+        android:padding="8dp"
+        android:src="@drawable/ic_delete"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/textAdapter"
+        app:layout_constraintTop_toBottomOf="@+id/textAdapter"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:contentDescription="change"
+        android:padding="8dp"
+        android:src="@drawable/ic_change"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/textQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/textQuantity"
+        tools:srcCompat="@tools:sample/avatars" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
