@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import com.george.food_basket.db.DbManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -11,6 +12,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     val dbManager = DbManager(this)
+    val adapterBasket = BasketAdapter(ArrayList(), this)
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +49,8 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         dbManager.openDB()
+
+
     }
 
 }

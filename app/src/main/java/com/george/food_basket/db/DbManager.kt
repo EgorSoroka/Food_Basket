@@ -3,6 +3,8 @@ package com.george.food_basket.db
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
+import androidx.core.database.getIntOrNull
 
 class DbManager(context: Context) {
     private val ProductsDBHelper = ProductsDBHelper(context)
@@ -21,26 +23,30 @@ class DbManager(context: Context) {
         db?.insert(ProductsContract.TABLE_NAME, null, values)
     }
 
+    fun deleteOfDB(id: String) {
+        val selection = BaseColumns._ID + "=$id"
+        db?.delete(ProductsContract.TABLE_NAME,selection, null)
+    }
+
     fun readDbData(): ArrayList<ListItem> {
         val dataList = ArrayList<ListItem>()
+        val cursor = db?.query(
+            ProductsContract.TABLE_NAME, null, null, null, null, null, null)
 
-        val cursor = db?.query(ProductsContract.TABLE_NAME, null, null, null, null, null, null)
-
-        with(cursor) {
-            while (this?.moveToNext()!!) {
-
-                val dataProd =
-                    cursor?.getString(cursor.getColumnIndex(ProductsContract.COLUMN_NAME_TITLE))
-                val dataQuantity: Int? =
-                    cursor?.getInt(cursor.getColumnIndex(ProductsContract.COLUMN_NAME_QUANTITY))
-                val item = ListItem()
-                item.product = dataProd.toString()
-                item.quantity = dataQuantity.toString()
-
-                dataList.add(item)
-            }
+        while (cursor?.moveToNext()!!) {
+            val dataProd =
+                cursor.getString(cursor.getColumnIndex(ProductsContract.COLUMN_NAME_TITLE))
+            val dataQuantity =
+                cursor.getInt(cursor.getColumnIndex(ProductsContract.COLUMN_NAME_QUANTITY))
+            val dataId =
+                cursor.getInt(cursor.getColumnIndex(BaseColumns._ID))
+            val item = ListItem()
+            item.product = dataProd
+            item.quantity = dataQuantity
+            item.id = dataId
+            dataList.add(item)
         }
-        cursor?.close()
+        cursor.close()
         return dataList
     }
 
