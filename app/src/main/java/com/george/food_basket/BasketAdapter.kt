@@ -20,7 +20,7 @@ class BasketAdapter(productList: ArrayList<ListItem>, contextB: Context) :
     class Holder(itemView: View, contextV: Context) : RecyclerView.ViewHolder(itemView) {
         val titleDate: TextView = itemView.findViewById(R.id.textAdapter)
         val titleQuantity: TextView = itemView.findViewById(R.id.textQuantity)
-        val context = contextV
+
 
         fun setData(title: ListItem) {
             titleDate.text = title.product
@@ -55,8 +55,5 @@ class BasketAdapter(productList: ArrayList<ListItem>, contextB: Context) :
         notifyItemRangeChanged(0, listProd.size)
         notifyItemRemoved(pos)
     }
-
-
-
 
 }

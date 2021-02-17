@@ -40,32 +40,4 @@
         app:layout_constraintStart_toEndOf="@+id/textAdapter"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/buttonDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:contentDescription="Delete"
-        android:padding="8dp"
-        android:src="@drawable/ic_delete"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@+id/textAdapter"
-        app:layout_constraintTop_toBottomOf="@+id/textAdapter"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/buttonChange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:contentDescription="change"
-        android:padding="8dp"
-        android:src="@drawable/ic_change"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/textQuantity"
-        app:layout_constraintTop_toBottomOf="@+id/textQuantity"
-        tools:srcCompat="@tools:sample/avatars" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

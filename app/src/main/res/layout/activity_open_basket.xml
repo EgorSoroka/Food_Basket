@@ -20,15 +20,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/no_products"
-        android:textColor="@color/greyText"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerProd"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerProd"
-        app:layout_constraintStart_toStartOf="@+id/recyclerProd"
-        app:layout_constraintTop_toTopOf="@+id/recyclerProd" />
 </androidx.constraintlayout.widget.ConstraintLayout>

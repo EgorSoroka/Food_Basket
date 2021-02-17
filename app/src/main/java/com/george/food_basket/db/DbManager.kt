@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.provider.BaseColumns
-import androidx.core.database.getIntOrNull
 
 class DbManager(context: Context) {
     private val ProductsDBHelper = ProductsDBHelper(context)
@@ -27,6 +26,15 @@ class DbManager(context: Context) {
         val selection = BaseColumns._ID + "=$id"
         db?.delete(ProductsContract.TABLE_NAME,selection, null)
     }
+
+    fun updateItem(product: String, quantity: String, id: String) {
+        val selection = BaseColumns._ID + "=$id"
+        val values = ContentValues().apply {
+            put(ProductsContract.COLUMN_NAME_QUANTITY, quantity)
+        }
+        db?.update(ProductsContract.TABLE_NAME, values, selection, null)
+    }
+
 
     fun readDbData(): ArrayList<ListItem> {
         val dataList = ArrayList<ListItem>()
